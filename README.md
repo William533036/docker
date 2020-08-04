@@ -10,13 +10,13 @@ docker
 
 
 容器（container）和镜像（image）之间的区别
-![401405294bff9c66a1ec0e842391c856](_v_images/20200804222756196_725.png)
+![](http://dockone.io/uploads/article/20190626/401405294bff9c66a1ec0e842391c856.png)
 ## docker引擎是一个c/s结构的应用，主要组件见下图
-![](_v_images/20200804222652674_14150.png)
+![](http://hainiubl.com/images/2016/engine-components-flow.png)
 ## Docker构架
 Docker使用C/S架构，Client 通过接口与Server进程通信实现容器的构建，运行和发布。client和server可以运行在同一台集群，也可以通过跨主机实现远程通信。
 
-![](_v_images/20200804222851748_11039.png)
+![](http://hainiubl.com/images/2016/architecture.jpg)
 
 ## DIY一个Base Image
 DOckerfile
