@@ -146,6 +146,7 @@ ENTRYPOINT
 让容器以应用程序或者服务的形式运行
 不会被忽略，一定执行
 最佳实践
+```
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN ln -s usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
 ENTRYPOINT ["docker-entrypoint.sh"]
@@ -153,6 +154,7 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 EXPOSE 3306
 CMD ["mysqld"]
 
+```
 ## shell和Exec格式
 shell格式
 RUN echo "Hello World!"
@@ -168,6 +170,7 @@ RUN ["/bin/echo", "Hello World!"]
 ## 2、通过发布Dockerfile
 
 # 5、镜像实践
+```
 FROM python:3.7
 LABLE  "maintainer=huangyingjie011@163.com"
 RUN pip  install flask
@@ -175,6 +178,7 @@ COPY app.py /app/
 WORKDIR /app
 EXPOSE 5000
 CMD ["python", "app.py"]
+```
 
 docker build -t hungyingjie/flask-hello-world .
 docker run -d 在后台运行
