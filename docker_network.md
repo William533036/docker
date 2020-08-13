@@ -27,3 +27,19 @@
 	docker network inspect
 	yum binstall brideg-utils
 	brctl show
+
+4-5 容器之间的link
+	docker run -d --name test2 --link test1 busybox /bin/sh -c "while true;do sleep 3600;done"
+	
+4-6 容器的端口映射
+	docker network inspect bridge
+		查看容器ip
+	docker run --name web -d -p 80:80 nginx
+	
+4-7 容器网络之host和none
+4-8 多容器复杂应用的部署演示
+	docker run -d -p 8080:5000 --link redis --name flask-redis -e REDIS_HOST=redis flaks-redis
+	
+	
+4-9 Overlay和Underlay的通俗解释
+4-10 Docker Overlay网络和etcd实现多机容器通信
