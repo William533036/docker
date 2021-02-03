@@ -25,16 +25,98 @@ chroot
 	给容器分配资源
 		静态:
 		动态: 
-			CGroups(Control Groups)内核本身实现的功能
-			可以实现各种系统资源动态、静态分配
-			可以创建一个隔离环境，共享底层内核空间
-			cpu
-			blkio
-			inux Cgroup（Control Groups）是Linux内核提供的用于限制、记录、隔离进程组可以使用的资源（cpu、memory、IO等）的一种机制。在/boot下面的对应config文件里查看Cgroup内核选项：
-			https://www.cnblogs.com/jimbo17/p/8145582.html
+		
+	CGroups(Control Groups)内核本身实现的功能
+		可以实现各种系统资源动态、静态分配
+		可以创建一个隔离环境，共享底层内核空间
+		cpu
+		blkio
+		inux Cgroup（Control Groups）是Linux内核提供的用于限制、记录、隔离进程组可以使用的资源（cpu、memory、IO等）的一种机制。在/boot下面的对应config文件里查看Cgroup内核选项：
+		https://www.cnblogs.com/jimbo17/p/8145582.html
+	
+	LXC: linux Container
+		基于模板快速创建容器，容器中有完整的文件系统，但是和底层系统公用内核
+		底层的文件系统和容器中的文件系统是隔离的
+		
+	Docker: LXC 二次封装
+		lxc-create docker仓库
+		
+	镜像:用来创建容器的模板，放在镜像仓库中
+	
+	优点:
+		降低开发周期、成本
+		
+	docker 镜像: 启动容器
+	构建方法: 首先构建基础操作系统，然后在基础系统上构成存在应用程序的系统
+		联合挂载: 首先挂载基础层，然后挂载包含指定程序的层
+	说明:
+		分层构建的各层都是共享的
+		分层构建的各层都是只读的
+		
+	容器是基于写时复制实现操作(copy on write)
+	
+	docker的编排工具
+		machine+swarm+compose
+		meos+marathon
+		kubernetes(k8s)
+		
+	coreos	
+			
+	docker
+		libcontainer-RunC
+		RunC格式的镜像文件: https://dockerhub.com
 		
 		
+	kvm
+		虚拟机
+		复杂
+		启动过程相对慢(分钟)
+		模板文件较大
+		和物理机完全隔离
+		模拟一个完整系统，可以登录并实现管理
 		
+	docker
+		直接虚拟出来一个用户空间
+		使用简单
+		启动非常快(秒级)
+		模板文件很小
+		在一定程度上和物理机隔离
+		仅仅是模拟一部分用户空间，不方便进行管理
+		
+		
+	docker架构(C/S)
+		client
+			docker run
+			docker pull
+			...
+		DockerHost
+			Docker Daemon
+				image-->container
+		
+		Registry
+		
+	docker daemon
+		仅仅监听在本地的Unix sock
+		也可以监听在socket
+		
+	registry	
+		用户认证
+		版本仓库(repo)
+			名称: 应用名称
+			tag: 版本仓库中具体镜像的标签,一个镜像可以有多个标签
+		
+		标识方法: 版本库名:tag
+							nginx:1.4
+	
+	使用场景:
+		快速部署服务
+		多租户
+		实现隔离
+		让一个主机运行多个容器
+		提高开发效率
+		简化配置过程
+		实现软件的跨平台
+	
 		
 		
 		
